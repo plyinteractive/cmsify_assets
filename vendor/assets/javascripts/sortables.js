@@ -1,4 +1,4 @@
-var Sortable = function(el, options) {
+Cmsify.Sortable = function(el, options) {
   this.$el = $(el);
   this.options = options;
   var sortableElement = sortable(this.$el, this.options);

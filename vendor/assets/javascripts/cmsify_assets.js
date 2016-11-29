@@ -13,6 +13,8 @@
 // Gem Libraries
 
 // Application Libraries
-//= require initializers
+//= require cmsify
+//= require tinymce
 //= require nested_resources
-//= require_tree .
+//= require sortables
+//= require initializers

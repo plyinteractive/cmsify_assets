@@ -1,4 +1,4 @@
-var initTinymce = function() {
+Cmsify.initTinymce = function() {
   tinymce.remove();
   tinymce.init(
     {

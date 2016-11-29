@@ -1,15 +1,15 @@
 $(document).on('turbolinks:load', function() {
   UIkit.init();
+  Cmsify.initTinymce();
   $('.js-nested-resources').each(function() {
-    new NestedResources(this);
+    new Cmsify.NestedResources(this);
   });
   $('.js-sortable').each(function() {
-    new Sortable(this, {
+    new Cmsify.Sortable(this, {
       forcePlaceholderSize: true,
       items: ':not(.disabled)'
     });
   });
-  initTinymce();
   $(".js-tablesort").each(function() {
     $(this).tablesorter();
   });

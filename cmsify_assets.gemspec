@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = CmsifyAssets::VERSION
   spec.authors       = ["Andrew Shenstone"]
   spec.email         = ["andrew@plyinteractive.com"]
-  spec.summary       = ["Cdr is Ply Interactive's rails core assets"]
+  spec.summary       = ["CmsifyAssets is Ply Interactive's rails core assets for shopify/uptown style projects"]
   spec.homepage      = ""
   spec.license       = "MIT"
 
