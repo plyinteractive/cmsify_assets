@@ -1,5 +1,5 @@
 require "cmsify_assets/version"
 
 module CmsifyAssets
-  # Your code goes here...
+  class Engine < ::Rails::Engine; end
 end
