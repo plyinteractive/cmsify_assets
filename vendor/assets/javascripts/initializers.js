@@ -25,4 +25,13 @@ $(document).on('turbolinks:load', function() {
       $(this).closest('form').submit();
     });
   });
+  $(".webui-popover").remove();
+  $(".js-webui-popover").each(function(e) {
+    $(this).webuiPopover({
+      container: "main",
+      placement: "left",
+      multi: false,
+      cache: false
+    });
+  });
 });
