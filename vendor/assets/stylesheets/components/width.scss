@@ -1,0 +1,12 @@
+.cmsify-width {
+  &--fixed {
+    &--medium {
+      width: 4rem;
+    }
+  }
+  &--max {
+    &--medium {
+      max-width: 300px;
+    }
+  }
+}

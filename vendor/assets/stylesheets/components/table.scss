@@ -1,0 +1,15 @@
+.table {
+  &--nested-resources {
+    th:hover {
+      cursor: default;
+      background-color: transparent;
+    }
+  }
+  &--static {
+    th:hover {
+      cursor: default;
+      background-color: transparent;
+      color: rgba($c-black, .9);
+    }
+  }
+}
