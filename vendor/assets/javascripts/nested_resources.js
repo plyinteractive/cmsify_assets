@@ -16,7 +16,7 @@ Cmsify.NestedResources = function (el) {
        insertedItem.attr({
         "data-index" : insertedItem.parent().children().length - 1
       });
-      new NestedResource(insertedItem, {
+      new Cmsify.NestedResource(insertedItem, {
         isNew: true,
         modelName: insertedItem.data('model-name'),
         parent: this,
