@@ -4,7 +4,7 @@ Cmsify.NestedResources = function (el) {
   this.$alertBox = this.$el.find('.js-alert-box');
   this.parsley = this.$el.closest('.js-parsley').parsley();
   this.$el.find('.js-nested-resource').each(function(index, el) {
-    new NestedResource(el, {
+    new Cmsify.NestedResource(el, {
       isNew: false,
       modelName: $(el).data('model-name'),
       parent: this,
