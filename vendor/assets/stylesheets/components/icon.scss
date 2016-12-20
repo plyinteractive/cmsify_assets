@@ -1,0 +1,8 @@
+// HACK: icomoon and uptown css conflict. Override styles for any icons coming from icomoon. 
+[class^="icon-"], [class*=" icon-"] {
+  &.icon--icomoon {
+    background-size: inherit;
+    width: inherit;
+    height: inherit;
+  }
+}

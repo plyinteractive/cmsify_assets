@@ -1,0 +1,7 @@
+$medium-width: 768px;
+$medium: "screen and (min-width: #{$medium-width})";
+@mixin media-medium {
+  @media #{$medium} {
+    @content;
+  }
+}

@@ -1,0 +1,27 @@
+// uptown colors
+.uk-block {
+  &-alert {
+    background-color: $c-geyser;
+  }
+  &-notice {
+    background-color: $c-uptown-tropical-blue;
+  }
+  &-success {
+    background-color: $c-uptown-gossip;
+  }
+  &-warning {
+    background-color: $c-uptown-buttermilk;
+  }
+  &-notification {
+    background-color: $c-uptown-buttermilk;
+  }
+  &-notification-light {
+    background-color: lighten($c-uptown-buttermilk, 12%);
+  }
+  &-error {
+    background-color: $c-uptown-mona-lisa;
+  }
+  &-secondary {
+    background-color: $c-outer-space;
+  }
+}

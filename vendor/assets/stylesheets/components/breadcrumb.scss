@@ -1,0 +1,13 @@
+.uk-breadcrumb {
+  > li {
+    font-size: 2rem;
+    display: flex;
+    &:before {
+      color: $c-sea-nymph;
+    }
+    a {
+      color: $c-sea-nymph;
+      display: flex;
+    }
+  }
+}
