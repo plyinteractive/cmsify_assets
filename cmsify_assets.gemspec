@@ -20,3 +20,13 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
 end
+
+# TODO: Find some way to require these libraries as a dependency. Can't use gems because they are an alternate step. I'm guessing bower with some sort of build step ```cmsify install``` or something
+
+# source 'https://rails-assets.org' do
+#   gem 'rails-assets-uikit'
+#   gem 'rails-assets-html.sortable'
+#   gem 'rails-assets-parsleyjs'
+#   gem 'rails-assets-jquery.tablesorter'
+#   gem 'rails-assets-webui-popover'
+# end
