@@ -110,7 +110,7 @@ Cmsify.NestedResource.prototype.addValidationGroup = function() {
 };
 
 Cmsify.NestedResource.prototype.initNewResource = function() {
-  initTinymce();
+  Cmsify.initTinymce();
   this.$el.addClass('uk-block-notification-light');
   this.$el.find('.js-move').html('');
   this.$el.find('.js-link').html('Adding New ' + this.options.modelName);
