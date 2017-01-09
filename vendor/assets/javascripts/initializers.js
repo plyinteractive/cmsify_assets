@@ -1,3 +1,4 @@
+Dropzone.autoDiscover = false;
 $(document).on('turbolinks:load', function() {
   UIkit.init();
   Cmsify.initTinymce();
@@ -33,5 +34,10 @@ $(document).on('turbolinks:load', function() {
       multi: false,
       cache: false
     });
+  });
+  $('.js-dropzone').each(function() {
+    $(this).dropzone({
+      dictDefaultMessage: 'Drop files or click here to upload.'
+    })
   });
 });
