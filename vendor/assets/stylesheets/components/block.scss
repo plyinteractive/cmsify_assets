@@ -16,7 +16,7 @@
     background-color: $c-uptown-buttermilk;
   }
   &-notification-light {
-    background-color: lighten($c-uptown-buttermilk, 12%);
+    background-color: $c-uptown-buttermilk-light;
   }
   &-error {
     background-color: $c-uptown-mona-lisa;
