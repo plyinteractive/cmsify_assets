@@ -39,13 +39,14 @@ $(document).on('turbolinks:load', function() {
     });
   });
   $('.js-dropzone').each(function() {
-    $(this).dropzone({
+    var $doneButton = $(this).find('.js-dropzone-done');
+    $(this).find('form').dropzone({
       dictDefaultMessage: 'Drop files or click here to upload.',
       init: function() {
         this.on("addedfile", function(files) {
-          $('.js-dropzone-done').addClass('disabled');
+          $doneButton.addClass('disabled');
         }).on("queuecomplete", function(files) {
-          $('.js-dropzone-done').removeClass('disabled');
+          $doneButton.removeClass('disabled');
         });
       }
     });
