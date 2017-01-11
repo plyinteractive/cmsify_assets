@@ -40,7 +40,14 @@ $(document).on('turbolinks:load', function() {
   });
   $('.js-dropzone').each(function() {
     $(this).dropzone({
-      dictDefaultMessage: 'Drop files or click here to upload.'
-    })
+      dictDefaultMessage: 'Drop files or click here to upload.',
+      init: function() {
+        this.on("addedfile", function(files) {
+          $('.js-dropzone-done').addClass('disabled');
+        }).on("queuecomplete", function(files) {
+          $('.js-dropzone-done').removeClass('disabled');
+        });
+      }
+    });
   });
 });
