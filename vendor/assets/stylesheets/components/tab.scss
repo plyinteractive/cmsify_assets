@@ -1,3 +1,4 @@
+// uikit tab override
 .uk-tab {
   background-color: $c-porcelain;
   > li {
@@ -38,6 +39,21 @@
         border-bottom-color: transparent;
         border-left-color: transparent;
       }
+    }
+  }
+}
+// Uptown css override
+.tabs {
+  li.uk-active {
+    &:first-child {
+      a {
+        border-top-left-radius: .3rem;
+      }
+    }
+    a {
+      background-color: $c-white;
+      color: $c-outer-space;
+      border-bottom-color: $c-white;
     }
   }
 }
