@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function() {
   $(".js-filter-search").each(function(e) {
     $(this).on('keyup', function(e) {
       if (e.keyCode === 13) {
-        $(this).closest('form').submit();
+        window.location.search  = "?utf8=%E2%9C%93&searched_term=" + $(this)[0].value;
       }
     });
   })
