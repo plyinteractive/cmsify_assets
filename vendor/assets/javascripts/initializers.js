@@ -8,6 +8,9 @@ $(document).on('turbolinks:load', function() {
   $('.js-nested-resources').each(function() {
     new Cmsify.NestedResources(this);
   });
+  $('.js-checkbox-modal').each(function() {
+    new Cmsify.CheckboxModal(this);
+  });
   $('.js-sortable').each(function() {
     new Cmsify.Sortable(this, {
       forcePlaceholderSize: true,

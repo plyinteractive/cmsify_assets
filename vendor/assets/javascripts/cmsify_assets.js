@@ -16,5 +16,6 @@
 //= require cmsify
 //= require tinymce
 //= require nested_resources
+//= require checkbox_modal
 //= require sortables
 //= require initializers
