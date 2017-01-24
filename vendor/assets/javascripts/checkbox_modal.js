@@ -3,7 +3,7 @@ Cmsify.CheckboxModal = function(el) {
   this.$el = $(el);
   this.$el.addClass('uk-modal');
   this.checked = {};
-  this.modal = UIkit.modal(el);
+  this.modal = UIkit.modal(el, {bgclose: false});
   this.modal.on('show.uk.modal', function() {
     this.storeCheckboxes();
   }.bind(this));
