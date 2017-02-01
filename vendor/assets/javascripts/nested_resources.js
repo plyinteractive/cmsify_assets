@@ -135,6 +135,7 @@ Cmsify.NestedResource.prototype.setIsModified = function () {
   if (JSON.stringify(this.serializeFields()) != JSON.stringify(this.lastData)) {
     this.isModified = true;
   }
+  return this.isModified;
 };
 
 Cmsify.NestedResource.prototype.updateResource = function() {
