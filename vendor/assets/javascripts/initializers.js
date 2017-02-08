@@ -57,7 +57,6 @@ $(document).on('turbolinks:load', function() {
   $('.js-dropzone-featured-image').each(function() {
     $(this).find('form').dropzone({
       dictDefaulMessage: 'Drop files or click here to upload',
-      maxFiles: 1,
       init: function() {
         this.on('success', function(req, res) {
           var clone = $($.clone($('.featured-image-table-element')[0]));
