@@ -59,7 +59,7 @@ $(document).on('turbolinks:load', function() {
       dictDefaulMessage: 'Drop files or click here to upload',
       init: function() {
         this.on('success', function(req, res) {
-          var clone = $($.clone($('.featured-image-table-element')[0]));
+          var clone = $($.clone($('.js-featured-image-table-element')[0]));
           var baseId = clone.find('input').attr('id').split('_');
           baseId.pop();
           baseId.push(res.id);
@@ -67,7 +67,7 @@ $(document).on('turbolinks:load', function() {
           radioButton.attr('id', baseId);
           radioButton.val(res.id);
           radioButton.attr('checked', true);
-          clone.insertBefore($('.featured-image-table-element')[0]);
+          clone.insertBefore($('.js-featured-image-table-element')[0]);
           var featuredImage = $('.js-featured-image').attr('src', res.attachment.url);
         });
       }
