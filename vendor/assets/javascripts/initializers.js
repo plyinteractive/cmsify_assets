@@ -54,4 +54,24 @@ $(document).on('turbolinks:load', function() {
       }
     });
   });
+  $('.js-dropzone-featured-image').each(function() {
+    $(this).find('form').dropzone({
+      dictDefaulMessage: 'Drop files or click here to upload',
+      maxFiles: 1,
+      init: function() {
+        this.on('success', function(req, res) {
+          var clone = $($.clone($('.featured-image-table-element')[0]));
+          var baseId = clone.find('input').attr('id').split('_');
+          baseId.pop();
+          baseId.push(res.id);
+          var radioButton = clone.find('input');
+          radioButton.attr('id', baseId);
+          radioButton.val(res.id);
+          radioButton.attr('checked', true);
+          clone.insertBefore($('.featured-image-table-element')[0]);
+          var featuredImage = $('.js-featured-image').attr('src', res.attachment.url);
+        });
+      }
+    })
+  });
 });
