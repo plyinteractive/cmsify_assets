@@ -59,8 +59,9 @@ $(document).on('turbolinks:load', function() {
       '.js-featured-image-table-element', 
       '.js-featured-image-table-element',
       function(clone, cloneInput, req, res) {
-        $('.js-featured-image').attr('src', res.attachment.url);
+        $('.js-featured-image').attr('src', res.attachment.url).removeClass('uk-hidden');
         $(clone).find('img').first().attr('src', res.attachment.icon.url);
+        $(clone).first().removeClass('uk-hidden');
       });
   });
 });
