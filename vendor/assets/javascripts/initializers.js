@@ -56,8 +56,8 @@ $(document).on('turbolinks:load', function() {
   });
   $('.js-dropzone-featured-image').each(function() {
     Cmsify.remoteUpload($(this).find('form'), 
-      $('.js-featured-image-table-element')[0], 
-      $('.js-featured-image-table-element')[0],
+      '.js-featured-image-table-element', 
+      '.js-featured-image-table-element',
       function(clone, cloneInput, req, res) {
         $('.js-featured-image').attr('src', res.attachment.url);
       });
