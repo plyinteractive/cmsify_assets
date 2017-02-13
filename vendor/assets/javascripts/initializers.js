@@ -60,6 +60,7 @@ $(document).on('turbolinks:load', function() {
       '.js-featured-image-table-element',
       function(clone, cloneInput, req, res) {
         $('.js-featured-image').attr('src', res.attachment.url);
+        $(clone).find('img').first().attr('src', res.attachment.icon.url);
       });
   });
 });
