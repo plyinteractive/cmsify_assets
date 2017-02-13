@@ -3,7 +3,7 @@ Cmsify.remoteUpload = function(form, elementToClone, elementToInsertBefore, call
     dictDefaultMessage: 'Drop files or click here to upload',
     init: function() {
       this.on('success', function(req, res) {
-        var $clone = $(elementToClone).clone(); //jquery apparently wraps tr elements in an array
+        var $clone = $(elementToClone).clone();
         var $input = $clone.is('input') ? $clone : $clone.find('input');
         //if the element is of type input, change the input to match the new id from the server
         if ($input || $input.length) {
