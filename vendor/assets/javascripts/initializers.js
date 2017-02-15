@@ -64,4 +64,9 @@ $(document).on('turbolinks:load', function() {
         $(clone).first().removeClass('uk-hidden');
       });
   });
+  $('.js-featured-image-table-element').each(function() {
+    $(this).find('input').on('click', function(event) {
+      $('.js-featured-image').attr('src', event.target.parentElement.parentElement.dataset.url);
+    });
+  });
 });
