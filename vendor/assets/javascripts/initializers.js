@@ -65,8 +65,9 @@ $(document).on('turbolinks:load', function() {
       });
   });
   $('.js-featured-image-table-element').each(function() {
+    var imageUrl = $(this).data('imageUrl');
     $(this).find('input').on('click', function(event) {
-      $('.js-featured-image').attr('src', event.target.parentElement.parentElement.dataset.url);
+      $('.js-featured-image').attr('src', imageUrl);
     });
   });
 });
