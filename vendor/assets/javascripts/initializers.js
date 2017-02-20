@@ -65,6 +65,7 @@ $(document).on('turbolinks:load', function() {
         $('.js-featured-image').attr('src', res.attachment.url).removeClass('uk-hidden');
         $(clone).find('img').first().attr('src', res.attachment.icon.url);
         $(clone).first().removeClass('uk-hidden');
+        UIkit.modal('#add-new-featured-image').hide();
       });
   });
   $('.js-featured-image-table-element').each(function() {
