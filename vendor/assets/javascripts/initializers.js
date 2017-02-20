@@ -77,10 +77,11 @@ $(document).on('turbolinks:load', function() {
     });
   });
   $('.js-remove-image').each(function() {
-    $(this).find('a').on('click', function(event) {
-      $(this).find('input').first().val(1);
-      $('.' + this.dataset.target).addClass('uk-hidden');
-      $(this).addClass('uk-hidden');
+    var $this = $(this);
+    $this.on('click', function() {
+      $this.find("input[name*='_destroy']").first().val(1);
+      $($this.data('target')).addClass('uk-hidden');
+      $this.addClass('uk-hidden');
     }.bind(this));
   });
 });
