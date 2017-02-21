@@ -66,12 +66,22 @@ $(document).on('turbolinks:load', function() {
         $(clone).find('img').first().attr('src', res.attachment.icon.url);
         $(clone).first().removeClass('uk-hidden');
         UIkit.modal('#add-new-featured-image').hide();
+        $('.js-remove-image').removeClass('uk-hidden');
       });
   });
   $('.js-featured-image-table-element').each(function() {
     var imageUrl = $(this).data('imageUrl');
     $(this).find('input').on('click', function(event) {
       $('.js-featured-image').attr('src', imageUrl).removeClass('uk-hidden');
+      $('.js-remove-image').removeClass('uk-hidden');
     });
+  });
+  $('.js-remove-image').each(function() {
+    var $this = $(this);
+    $this.on('click', function() {
+      $this.find("input[name*='_destroy']").first().val(1);
+      $($this.data('target')).addClass('uk-hidden');
+      $this.addClass('uk-hidden');
+    }.bind(this));
   });
 });
