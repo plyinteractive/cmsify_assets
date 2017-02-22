@@ -57,22 +57,24 @@ $(document).on('turbolinks:load', function() {
       }
     });
   });
-  $('.js-dropzone-featured-image').each(function() {
+  $('.js-dropzone-image-upload').each(function() {
+    var resourceName = this.dataset.resourceName;
     Cmsify.remoteUpload($(this).find('form'), 
-      '.js-featured-image-table-element', 
-      '.js-featured-image-table-element',
+      '.js-' + resourceName + '-table-element', 
+      '.js-' + resourceName + '-table-element',
       function(clone, cloneInput, req, res) {
-        $('.js-featured-image').attr('src', res.attachment.url).removeClass('uk-hidden');
+        $('.js-' + resourceName).attr('src', res.attachment.url).removeClass('uk-hidden');
         $(clone).find('img').first().attr('src', res.attachment.icon.url);
         $(clone).first().removeClass('uk-hidden');
-        UIkit.modal('#add-new-featured-image').hide();
+        UIkit.modal('#add-new-' + resourceName).hide();
         $('.js-remove-image').removeClass('uk-hidden');
       });
   });
-  $('.js-featured-image-table-element').each(function() {
-    var imageUrl = $(this).data('imageUrl');
-    $(this).find('input').on('click', function(event) {
-      $('.js-featured-image').attr('src', imageUrl).removeClass('uk-hidden');
+  $('.js-image-element').each(function() {
+    var $this = $(this);
+    var imageUrl = $this.data('imageUrl');
+    $this.find('input').on('click', function(event) {
+      $($this.data('imageTarget')).attr('src', imageUrl).removeClass('uk-hidden');
       $('.js-remove-image').removeClass('uk-hidden');
     });
   });
