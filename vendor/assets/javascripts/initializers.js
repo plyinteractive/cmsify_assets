@@ -70,6 +70,28 @@ $(document).on('turbolinks:load', function() {
         $('.js-remove-image').removeClass('uk-hidden');
       });
   });
+  $('.js-dropzone-asset-upload').each(function() {
+    Cmsify.remoteUpload($(this).find('form'),
+      '.js-asset-table-element',
+      '.js-asset-table-element',
+      function(clone, cloneInput, req, res) {
+        UIkit.modal('#add-new-asset').hide();
+        var urlArray = res.attachment.url.split('/');
+        var $jsAsset = $('.js-asset').first();
+        $jsAsset.text(urlArray[urlArray.length - 1]);
+        $jsAsset.attr('href', "/admin/assets/" + res.id);
+      }
+    );
+  });
+  $('.js-asset-table-element').each(function() {
+    var $this = $(this);
+    var $jsAsset = $('.js-asset').first();
+    $this.find('input').on('click', function() {
+      var $anchor = $this.find('a').first();
+      $jsAsset.text($this.find('a').text());
+      $jsAsset.attr('href', $anchor.attr('href'));
+    });
+  });
   $('.js-image-element').each(function() {
     var $this = $(this);
     var imageUrl = $this.data('imageUrl');
