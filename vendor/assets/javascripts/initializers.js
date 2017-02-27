@@ -114,4 +114,7 @@ $(document).on('turbolinks:load', function() {
       $this.addClass('uk-hidden');
     }.bind(this));
   });
+  $('.uk-modal').on('show.uk.modal', function() {
+    $('.js-webui-popover').webuiPopover('hide');
+  });
 });
