@@ -78,18 +78,24 @@ $(document).on('turbolinks:load', function() {
         UIkit.modal('#add-new-asset').hide();
         var urlArray = res.attachment.url.split('/');
         var $jsAsset = $('.js-asset').first();
-        $jsAsset.text(urlArray[urlArray.length - 1]);
-        $jsAsset.attr('href', "/admin/assets/" + res.id);
+        var $anchor = $jsAsset.find('a').first();
+        $anchor.text(urlArray[urlArray.length - 1]);
+        $anchor.attr('href', "/admin/assets/" + res.id);
+        $jsAsset.removeClass('uk-hidden');
+        $('.js-asset-buttons').first().addClass('uk-hidden');
       }
     );
   });
   $('.js-asset-table-element').each(function() {
     var $this = $(this);
     var $jsAsset = $('.js-asset').first();
+    var $buttons = $('.js-asset-buttons').first();
     $this.find('input').on('click', function() {
-      var $anchor = $this.find('a').first();
-      $jsAsset.text($this.find('a').text());
-      $jsAsset.attr('href', $anchor.attr('href'));
+      var $anchor = $jsAsset.find('a').first();
+      $anchor.text($this.find('a').text());
+      $anchor.attr('href', $this.find('a').first().attr('href'));
+      $jsAsset.removeClass('uk-hidden');
+      $buttons.addClass('uk-hidden');
     });
   });
   $('.js-image-element').each(function() {
