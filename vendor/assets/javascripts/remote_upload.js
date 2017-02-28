@@ -16,6 +16,7 @@ var remoteUpload = Cmsify.remoteUpload = function(form, elementToClone, elementT
           });
           $input.val(res.id);
         }
+        $clone.removeClass('uk-hidden');
         $clone.insertBefore($(elementToInsertBefore).first());
         if (typeof callback === 'function') callback(elementToClone, $input, req, res);
         this.destroy();
