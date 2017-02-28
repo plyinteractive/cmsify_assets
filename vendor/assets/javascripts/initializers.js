@@ -82,7 +82,7 @@ $(document).on('turbolinks:load', function() {
         $anchor.text(urlArray[urlArray.length - 1]);
         $anchor.attr('href', "/admin/assets/" + res.id);
         $jsAsset.removeClass('uk-hidden');
-        $('.js-asset-buttons').first().addClass('uk-hidden');
+        $('.js-asset-hide-on-select').addClass('uk-hidden');
       }
     );
   });
@@ -90,7 +90,7 @@ $(document).on('turbolinks:load', function() {
     var $this = $(this);
     var $tableImg = $this.find('img');
     var $jsAsset = $('.js-asset').first();
-    var $buttons = $('.js-asset-buttons').first();
+    var $toBeHidden = $('.js-asset-hide-on-select');
     $this.find('input').on('click', function() {
       var $anchor = $jsAsset.find('a').first();
       var $assetImg = $jsAsset.find('img').first();
@@ -103,7 +103,7 @@ $(document).on('turbolinks:load', function() {
         $assetImg.addClass('uk-hidden');
       }
       $jsAsset.removeClass('uk-hidden');
-      $buttons.addClass('uk-hidden');
+      $toBeHidden.addClass('uk-hidden');
     });
   });
   $('.js-image-element').each(function() {
