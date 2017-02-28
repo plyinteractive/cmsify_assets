@@ -88,12 +88,20 @@ $(document).on('turbolinks:load', function() {
   });
   $('.js-asset-table-element').each(function() {
     var $this = $(this);
+    var $tableImg = $this.find('img');
     var $jsAsset = $('.js-asset').first();
     var $buttons = $('.js-asset-buttons').first();
     $this.find('input').on('click', function() {
       var $anchor = $jsAsset.find('a').first();
+      var $assetImg = $jsAsset.find('img').first();
       $anchor.text($this.find('a').text());
       $anchor.attr('href', $this.find('a').first().attr('href'));
+      if ($tableImg.length) {
+        $assetImg.attr('src', $tableImg.first().attr('src'));
+        $assetImg.removeClass('uk-hidden');
+      } else {
+        $assetImg.addClass('uk-hidden');
+      }
       $jsAsset.removeClass('uk-hidden');
       $buttons.addClass('uk-hidden');
     });
