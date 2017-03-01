@@ -44,6 +44,7 @@ CFM.prototype.isInternalLink = function(target) {
     (typeof($target.data('ukModal')) !== 'undefined') || 
     $target.hasClass('uk-modal-close') || 
     $target.hasClass('js-remove-image') ||
-    $target.text() === 'Save'
+    $target.text() === 'Save' ||
+    $target.hasClass('js-internal')
   )
 };
