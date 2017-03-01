@@ -9,8 +9,12 @@ var CFM = Cmsify.ChangedFormModal = function(el) {
     if (this.setIsModified()) this.openWarningModal();
   }.bind(this));
 
+  $('input[type="submit"]').on('click', function() {
+    this.isSaveButton = true;
+  }.bind(this));
+
   window.onbeforeunload = function(event) {
-    if (this.setIsModified() && !this.isWarningModalOpened) return "You have unsaved changes, are you sure?";
+    if (this.setIsModified() && !this.isWarningModalOpened && !this.isSaveButton) return "You have unsaved changes, are you sure?";
     this.isWarningModalOpened = false;
   }.bind(this);
 }
@@ -37,8 +41,9 @@ CFM.prototype.openWarningModal = function() {
 CFM.prototype.isInternalLink = function(target) {
   var $target = $(target);
   return (
-    (typeof(target.data('ukModal')) !== 'undefined') || 
+    (typeof($target.data('ukModal')) !== 'undefined') || 
     $target.hasClass('uk-modal-close') || 
-    $target.hasClass('js-remove-image')
+    $target.hasClass('js-remove-image') ||
+    $target.text() === 'Save'
   )
 };
