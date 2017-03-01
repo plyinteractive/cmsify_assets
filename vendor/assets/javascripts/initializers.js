@@ -11,9 +11,6 @@ $(document).on('turbolinks:load', function() {
   $('.js-checkbox-modal').each(function() {
     new Cmsify.CheckboxModal(this);
   });
-  $('.js-changed-form-modal').each(function() {
-    new Cmsify.ChangedFormModal(this);
-  });
   $('.js-sortable').each(function() {
     new Cmsify.Sortable(this, {
       forcePlaceholderSize: true,
@@ -124,5 +121,8 @@ $(document).on('turbolinks:load', function() {
   });
   $('.uk-modal').on('show.uk.modal', function() {
     $('.js-webui-popover').webuiPopover('hide');
+  });
+  $('.js-changed-form-modal').each(function() {
+    new Cmsify.ChangedFormModal(this);
   });
 });
