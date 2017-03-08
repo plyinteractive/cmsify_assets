@@ -1,7 +1,6 @@
 // allow a cancel button to work properly on checkbox modal
 Cmsify.CheckboxModal = function(el) {
   this.$el = $(el);
-  this.$el.addClass('uk-modal');
   this.checked = {};
   this.modal = UIkit.modal(el, {bgclose: false});
   this.modal.on('show.uk.modal', function() {

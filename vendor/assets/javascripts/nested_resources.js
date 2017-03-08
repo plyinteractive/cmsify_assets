@@ -122,7 +122,10 @@ Cmsify.NestedResource.prototype.getModalSelector = function() {
 };
 
 Cmsify.NestedResource.prototype.serializeFields = function () {
-  return this.$el.find(':input').serializeArray()
+  //HACK needed because of how turbolinks is loading. Between the time that the page load
+  //event is fired and the page actually becomes useful the authenicity token being changed
+  //by turbolinks
+  return Cmsify.util.filterAuthenticityToken(this.$el.find(':input').serializeArray());
 };
 
 Cmsify.NestedResource.prototype.deserializeFields = function(fields) {

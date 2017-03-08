@@ -14,6 +14,7 @@
 
 // Application Libraries
 //= require cmsify
+//= require util
 //= require remote_upload
 //= require tinymce
 //= require nested_resources
