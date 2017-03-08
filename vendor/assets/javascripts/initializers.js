@@ -11,6 +11,11 @@ $(document).on('turbolinks:load', function() {
   $('.js-checkbox-modal').each(function() {
     new Cmsify.CheckboxModal(this);
   });
+  $('.js-modal-open').each(function() {
+    $(this).on('click', function() {
+      UIkit.modal(this.dataset['target']).show();
+    });
+  });
   $('.js-sortable').each(function() {
     new Cmsify.Sortable(this, {
       forcePlaceholderSize: true,
@@ -123,6 +128,6 @@ $(document).on('turbolinks:load', function() {
     $('.js-webui-popover').webuiPopover('hide');
   });
   $('.js-changed-form-modal').each(function() {
-    new Cmsify.ChangedFormModal(this);
+    window.unsavedModal = new Cmsify.ChangedFormModal(this);
   });
 });

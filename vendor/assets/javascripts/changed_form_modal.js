@@ -5,8 +5,9 @@ var CFM = Cmsify.ChangedFormModal = function(el) {
   if(!this.$el.length) return;
   this.lastData = this.serializeFields();  
   $('a').on('click', function(event) {
-    if (this.isInternalLink(event.target)) return;
-    if (this.setIsModified()) this.openWarningModal();
+    $target = $(event.target);
+    if (typeof $target.attr('href') === 'undefined' || $target.attr('target') === '_blank') return;
+    if (this.setIsModified()) this.openWarningModal(event);
   }.bind(this));
 
   $('input[type="submit"]').on('click', function() {
@@ -19,13 +20,11 @@ var CFM = Cmsify.ChangedFormModal = function(el) {
   }.bind(this);
 }
 
-CFM.prototype.serializeFields = function() {
-  return filterAuthenticityToken(NR.serializeFields.call(this));
-} 
+CFM.prototype.serializeFields = NR.serializeFields;
 
 CFM.prototype.setIsModified = NR.setIsModified
 
-CFM.prototype.openWarningModal = function() {
+CFM.prototype.openWarningModal = function(event) {
   this.isWarningModalOpened = true;
   event.preventDefault();
   var $unsavedModal = UIkit.modal('.js-unsaved-modal');
@@ -37,14 +36,3 @@ CFM.prototype.openWarningModal = function() {
     this.isWarningModalOpened = false;
   }.bind(this));
 }
-
-CFM.prototype.isInternalLink = function(target) {
-  var $target = $(target);
-  return (
-    (typeof($target.data('ukModal')) !== 'undefined') || 
-    $target.hasClass('uk-modal-close') || 
-    $target.hasClass('js-remove-image') ||
-    $target.text() === 'Save' ||
-    $target.hasClass('js-internal')
-  )
-};
