@@ -3,7 +3,8 @@ Cmsify.initTinymce = function() {
   tinymce.init(
     {
       selector:'.tinymce',
-      plugins: [ '', 'searchreplace code fullscreen', 'media paste code' ],
+      height: 250,
+      plugins: "searchreplace code fullscreen media paste code lists advlist",
       setup: function(editor) {
         editor.on('change', function(e) {
           $('input[id='+ e.target.id + ']').trigger('tinymce:change');
