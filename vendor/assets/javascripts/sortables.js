@@ -6,11 +6,13 @@ Cmsify.Sortable = function(el, options) {
     this.$el.find('.js-rank').each(function(i) {
       $(this).attr('value', i + 1);
     });
-    $.ajax({
-      type: 'PUT',
-      url: this.$el.data('sort-action'),
-      data: { order: this.$el.find('.js-rank').serializeArray() },
-    });
+    if (this.$el.data('sort-action')) {
+      $.ajax({
+        type: 'PUT',
+        url: this.$el.data('sort-action'),
+        data: { order: this.$el.find('.js-rank').serializeArray() },
+      });
+    }
   }.bind(this));
 };
 
