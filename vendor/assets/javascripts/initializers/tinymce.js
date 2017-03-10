@@ -1,4 +1,4 @@
-Cmsify.initTinymce = function() {
+$(document).on('cmsify:load', function() {
   tinymce.remove();
   tinymce.init(
     {
@@ -12,4 +12,4 @@ Cmsify.initTinymce = function() {
       }
     }
   );
-}
+});

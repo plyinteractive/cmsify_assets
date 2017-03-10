@@ -1,9 +1,8 @@
 var NR = Cmsify.NestedResource.prototype;
-var filterAuthenticityToken = Cmsify.util.filterAuthenticityToken;
 var CFM = Cmsify.ChangedFormModal = function(el) {
   this.$el = $('form');
   if(!this.$el.length) return;
-  this.lastData = this.serializeFields();  
+  this.lastData = this.serializeFields();
   $('a').on('click', function(event) {
     $target = $(event.target);
     if (typeof $target.attr('href') === 'undefined' || $target.attr('target') === '_blank') return;
