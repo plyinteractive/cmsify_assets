@@ -12,4 +12,11 @@
       color: rgba($c-black, .9);
     }
   }
+  tr {
+    &:last-of-type {
+      td {
+        border-bottom: none;
+      }
+    }
+  }
 }
