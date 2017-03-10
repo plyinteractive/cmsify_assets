@@ -1,51 +1,5 @@
 Dropzone.autoDiscover = false;
-// TODO: Initializers depend on libraries loaded through rails-assets gems.
-// Gems can't be loaded through alternate sources (rails-assets.org) in .gemspec, so the best alternative
-// will be adding bower to the gemspec somehow
-$(document).on('turbolinks:load', function() {
-  UIkit.init();
-  Cmsify.initTinymce();
-  $('.js-nested-resources').each(function() {
-    new Cmsify.NestedResources(this);
-  });
-  $('.js-checkbox-modal').each(function() {
-    new Cmsify.CheckboxModal(this);
-  });
-  $('.js-modal-open').each(function() {
-    $(this).on('click', function() {
-      UIkit.modal(this.dataset['target']).show();
-    });
-  });
-  $('.js-sortable').each(function() {
-    new Cmsify.Sortable(this, {
-      forcePlaceholderSize: true,
-      items: ':not(.disabled)'
-    });
-  });
-  $(".js-tablesort").each(function() {
-    $(this).tablesorter();
-  });
-  $(".js-filter-search").each(function(e) {
-    $(this).on('keyup', function(e) {
-      if (e.keyCode === 13) {
-        $(this).closest('form').submit();
-      }
-    });
-  })
-  $(".js-filter-input").each(function(e) {
-    $(this).on('change', function(e) {
-      $(this).closest('form').submit();
-    });
-  });
-  $(".webui-popover").remove();
-  $(".js-webui-popover").each(function(e) {
-    $(this).webuiPopover({
-      container: "main",
-      placement: "left",
-      multi: false,
-      cache: false
-    });
-  });
+$(document).on('cmsify:load', function() {
   $('.js-dropzone').each(function() {
     var $doneButton = $(this).find('.js-dropzone-done');
     $(this).find('form').dropzone({
@@ -61,8 +15,8 @@ $(document).on('turbolinks:load', function() {
   });
   $('.js-dropzone-image-upload').each(function() {
     var resourceName = this.dataset.resourceName;
-    Cmsify.remoteUpload($(this).find('form'), 
-      '.js-' + resourceName + '-table-element', 
+    Cmsify.remoteUpload($(this).find('form'),
+      '.js-' + resourceName + '-table-element',
       '.js-' + resourceName + '-table-element',
       function(clone, cloneInput, req, res) {
         $('.js-' + resourceName).attr('src', res.attachment.url).removeClass('uk-hidden');
@@ -123,11 +77,5 @@ $(document).on('turbolinks:load', function() {
       $($this.data('target')).addClass('uk-hidden');
       $this.addClass('uk-hidden');
     }.bind(this));
-  });
-  $('.uk-modal').on('show.uk.modal', function() {
-    $('.js-webui-popover').webuiPopover('hide');
-  });
-  $('.js-changed-form-modal').each(function() {
-    window.unsavedModal = new Cmsify.ChangedFormModal(this);
   });
 });

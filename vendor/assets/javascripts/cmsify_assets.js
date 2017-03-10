@@ -14,11 +14,8 @@
 
 // Application Libraries
 //= require cmsify
-//= require util
-//= require remote_upload
-//= require tinymce
-//= require nested_resources
-//= require checkbox_modal
-//= require changed_form_modal
-//= require sortables
-//= require initializers
+//= require utilities
+//= require ./behaviors/nested_resources
+//= require_tree ./behaviors
+//= require ./initializers/tinymce
+//= require_tree ./initializers
