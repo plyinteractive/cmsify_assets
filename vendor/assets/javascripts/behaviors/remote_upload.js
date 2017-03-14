@@ -23,7 +23,10 @@ var remoteUpload = Cmsify.remoteUpload = function(form, elementToClone, elementT
         $clone.data('asset-type', res.asset.type);
         $clone.removeClass('uk-hidden');
         $clone.insertBefore($(elementToInsertBefore).first());
-        new Cmsify.SelectableAsset($clone).select();
+        var selectableAsset = new Cmsify.SelectableAsset($clone);
+        selectableAsset.select();
+        $clone.children().first().html(selectableAsset.renderAssetIconPreview());
+        $clone.children().eq(1).html(selectableAsset.getFileName());
         if (typeof callback === 'function') callback(elementToClone, $input, req, res);
         this.destroy();
         remoteUpload(form, elementToClone, elementToInsertBefore, callback);
