@@ -16,6 +16,7 @@
 //= require cmsify
 //= require utilities
 //= require ./behaviors/nested_resources
+//= require ./behaviors/selectable_asset
 //= require_tree ./behaviors
 //= require ./initializers/tinymce
 //= require_tree ./initializers
