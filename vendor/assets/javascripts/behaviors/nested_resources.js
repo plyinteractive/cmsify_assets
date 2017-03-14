@@ -135,10 +135,7 @@ Cmsify.NestedResource.prototype.deserializeFields = function(fields) {
 };
 
 Cmsify.NestedResource.prototype.setIsModified = function () {
-  if (tinyMCE.editors.some(function(editor) { return editor.isDirty() }) ||
-      JSON.stringify(this.serializeFields()) != JSON.stringify(this.lastData)) {
-    this.isModified = true;
-  }
+  this.isModified = (tinyMCE.editors.some(function(editor) {return editor.isDirty()}) || (JSON.stringify(this.serializeFields()) !== JSON.stringify(this.lastData)));
   return this.isModified;
 };
 
