@@ -1,6 +1,11 @@
 var remoteUpload = Cmsify.remoteUpload = function(form, elementToClone, elementToInsertBefore, callback) {
   form.dropzone({
     dictDefaultMessage: 'Drop files or click here to upload',
+    maxFiles: 1,
+    maxfilesexceeded: function(file) {
+      this.removeAllFiles();
+      this.addFile(file); 
+    },
     init: function() {
       this.on('success', function(req, res) {
         var $clone = $(elementToClone).clone().first();
