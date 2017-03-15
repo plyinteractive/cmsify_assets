@@ -11,6 +11,7 @@
 // about supported directives.
 //
 // Gem Libraries
+//= require underscore
 
 // Application Libraries
 //= require cmsify
