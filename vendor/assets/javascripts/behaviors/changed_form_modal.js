@@ -3,6 +3,12 @@ var CFM = Cmsify.ChangedFormModal = function(el) {
   this.$el = $('form');
   if(!this.$el.length) return;
   this.lastData = this.serializeFields();
+  var detectChange = this.detectChange.bind(this);
+  this.$el.on('keyup', detectChange);
+  this.$el.on('click', detectChange);
+  $('.js-sortable').each(function() {
+    this.addEventListener('sortupdate', detectChange);
+  });
   $('a').on('click', function(event) {
     $target = $(event.target);
     if (typeof $target.attr('href') === 'undefined' || $target.attr('target') === '_blank') return;
@@ -35,3 +41,9 @@ CFM.prototype.openWarningModal = function(event) {
     this.isWarningModalOpened = false;
   }.bind(this));
 }
+
+CFM.prototype.detectChange = function() {
+  if (this.setIsModified()) {
+    $('input[type=submit]').prop('disabled', false);
+  }
+};
