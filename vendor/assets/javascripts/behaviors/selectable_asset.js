@@ -10,6 +10,9 @@ Cmsify.SelectableAsset.prototype.select = function() {
   $preview.html(this.renderAssetOriginalPreview());
   $preview.append($('<p />').html(this.getFileName()));
   $('.js-remove-asset').removeClass('uk-hidden');
+  if (this.$el.data('asset-name') === 'download') {
+    $('#resource_item_name').val(this.getFileName());
+  }
 };
 
 Cmsify.SelectableAsset.prototype.renderAssetOriginalPreview = function() {
