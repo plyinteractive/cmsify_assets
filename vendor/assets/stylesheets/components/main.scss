@@ -4,4 +4,7 @@ main {
   position: fixed;
   top: 0;
   bottom: 0;
+  .uk-modal-page {
+    overflow: hidden;
+  }
 }
