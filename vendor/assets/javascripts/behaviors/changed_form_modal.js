@@ -1,6 +1,6 @@
 var NR = Cmsify.NestedResource.prototype;
 var CFM = Cmsify.ChangedFormModal = function(el) {
-  this.$el = $('form');
+  this.$el = $('form.js-track-changes');
   if(!this.$el.length) return;
   this.lastData = this.serializeFields();
   var detectChange = this.detectChange.bind(this);
