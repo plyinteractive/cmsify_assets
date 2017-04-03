@@ -18,17 +18,18 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "bower-rails", "~> 0.11.0"
   spec.add_development_dependency "rake"
 
+  spec.add_dependency 'jquery-rails'
+  spec.add_dependency 'turbolinks', '~> 5'
+  spec.add_dependency 'cocoon'
   spec.add_dependency 'underscore-rails'
+  spec.add_dependency 'rails-assets-uikit'
+  spec.add_dependency 'rails-assets-bourbon'
+  spec.add_dependency 'rails-assets-html.sortable'
+  spec.add_dependency 'rails-assets-parsleyjs'
+  spec.add_dependency 'rails-assets-jquery.tablesorter'
+  spec.add_dependency 'rails-assets-webui-popover'
+  spec.add_dependency 'rails-assets-dropzone'
 end
-
-# TODO: Find some way to require these libraries as a dependency. Can't use gems because they are an alternate step. I'm guessing bower with some sort of build step ```cmsify install``` or something
-
-# source 'https://rails-assets.org' do
-#   gem 'rails-assets-uikit'
-#   gem 'rails-assets-html.sortable'
-#   gem 'rails-assets-parsleyjs'
-#   gem 'rails-assets-jquery.tablesorter'
-#   gem 'rails-assets-webui-popover'
-# end

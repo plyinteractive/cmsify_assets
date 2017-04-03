@@ -12,6 +12,13 @@
  *
  *= require_self
  */
+@import 'uikit';
+@import 'uikit/components/datepicker';
+// HACK: Loading the sass messes up form buttons for some reason. Need to investigate why and make
+// a PR to Uptown repo. For now, just load the compiled CSS.
+// @import 'uptown/styles/uptown';
+@import 'uptown/css/uptown';
+@import 'webui-popover';
+@import 'dropzone';
 @import 'helpers/**/*';
 @import 'components/**/*';
-

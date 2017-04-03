@@ -11,9 +11,20 @@
 // about supported directives.
 //
 // Gem Libraries
+//= require jquery3
+//= require jquery_ujs
+//= require turbolinks
+//= require cocoon
+//= require html.sortable
+//= require jquery.tablesorter
+//= require webui-popover/jquery.webui-popover
+//= require parsleyjs
+//= require dropzone
 //= require underscore
+//= require uikit
+//= require uikit/components/datepicker.js
 
-// Application Libraries
+// Cmsify Classes
 //= require cmsify
 //= require utilities
 //= require ./behaviors/nested_resources
