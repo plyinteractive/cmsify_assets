@@ -6,6 +6,7 @@ module CmsifyAssets
     require 'turbolinks'
     require 'cocoon'
     require 'underscore-rails'
+    require 'autoprefixer-rails'
     require 'rails-assets-uikit'
     require 'rails-assets-bourbon'
     require 'rails-assets-html.sortable'
