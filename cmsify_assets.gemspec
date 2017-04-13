@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'turbolinks', '~> 5'
   spec.add_dependency 'cocoon'
   spec.add_dependency 'underscore-rails'
+  spec.add_dependency 'autoprefixer-rails'
   spec.add_dependency 'rails-assets-uikit'
   spec.add_dependency 'rails-assets-bourbon'
   spec.add_dependency 'rails-assets-html.sortable'

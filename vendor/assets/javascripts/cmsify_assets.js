@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require cocoon
-//= require html.sortable
+//= require html.sortable/dist/html.sortable.js
 //= require jquery.tablesorter
 //= require webui-popover/jquery.webui-popover
 //= require parsleyjs
