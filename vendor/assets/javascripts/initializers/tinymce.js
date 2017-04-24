@@ -5,7 +5,7 @@ $(document).on('cmsify:load', function() {
       selector:'.tinymce',
       height: 250,
       plugins: "searchreplace code fullscreen media paste code lists advlist image",
-      toolbar: "code image",
+      toolbar: "code image bullist numlist",
       image_list: "/admin/assets.json",
       setup: function(editor) {
         editor.on('change', function(e) {
