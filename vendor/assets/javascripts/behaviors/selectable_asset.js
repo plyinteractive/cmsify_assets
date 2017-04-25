@@ -1,14 +1,18 @@
 Cmsify.SelectableAsset = function(el) {
   this.$el = $(el);
+  this.$preview = $('.js-' + this.$el.data('asset-name'));
+  this.$altTitleText = $('.js-' + this.$el.data('asset-name') + '-alt-title-text');
   this.select = this.select.bind(this);
   this.$el.on('click', this.select);
   return this;
 };
 
 Cmsify.SelectableAsset.prototype.select = function() {
-  $preview = $('.js-' + this.$el.data('asset-name'));
-  $preview.html(this.renderAssetOriginalPreview());
-  $preview.append($('<p />').html(this.getFileName()));
+  this.$preview.html(this.renderAssetOriginalPreview());
+  this.$preview.append($('<p />').html(this.getFileName()));
+  if (this.$altTitleText.val() === "") {
+    this.$altTitleText.val(this.getFileName());
+  }
   $('.js-remove-asset').removeClass('uk-hidden');
   if (this.$el.data('asset-name') === 'download') {
     $('#resource_item_name').val(this.getFileName());

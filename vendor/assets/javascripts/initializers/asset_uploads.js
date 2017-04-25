@@ -15,7 +15,7 @@ $(document).on('cmsify:load', function() {
   });
   $('.js-dropzone-asset-upload').each(function() {
     var resourceName = this.dataset.resourceName;
-    Cmsify.remoteUpload($(this).find('form'),
+    Cmsify.RemoteUpload($(this).find('form'),
       '.js-' + resourceName + '-table-element',
       '.js-' + resourceName + '-table-element',
       function(clone, cloneInput, req, res) {
