@@ -23,7 +23,7 @@ Cmsify.AttachedAsset.prototype.removeAssetPreview = function() {
 };
 
 Cmsify.AttachedAsset.prototype.loadSelectedAsset = function(event) {
-  var { options } = event;
+  var options = event.options;
   this.$preview.html(options.preview);
   this.$preview.append($('<p />').html(options.fileName));
   if (this.$altTitleText.val() === "") {
