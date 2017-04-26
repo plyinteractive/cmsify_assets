@@ -27,12 +27,7 @@ $(document).on('cmsify:load', function() {
   $('.js-selectable').each(function() {
     new Cmsify.SelectableAsset(this);
   });
-  $('.js-remove-asset').each(function() {
-    var $this = $(this);
-    $this.on('click', function() {
-      $this.find("input[name*='_destroy']").first().val(1);
-      $($this.data('target')).addClass('uk-hidden');
-      $this.addClass('uk-hidden');
-    }.bind(this));
+  $('.js-attached').each(function() {
+    new Cmsify.AttachedAsset(this);
   });
 });

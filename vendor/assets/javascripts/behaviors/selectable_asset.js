@@ -1,19 +1,20 @@
 Cmsify.SelectableAsset = function(el) {
   this.$el = $(el);
   this.$preview = $('.js-' + this.$el.data('asset-name'));
-  this.$altTitleText = $('.js-' + this.$el.data('asset-name') + '-alt-title-text');
   this.select = this.select.bind(this);
   this.$el.on('click', this.select);
   return this;
 };
 
 Cmsify.SelectableAsset.prototype.select = function() {
-  this.$preview.html(this.renderAssetOriginalPreview());
-  this.$preview.append($('<p />').html(this.getFileName()));
-  if (this.$altTitleText.val() === "") {
-    this.$altTitleText.val(this.getFileName());
-  }
-  $('.js-remove-asset').removeClass('uk-hidden');
+  this.$preview.trigger({
+    type: 'selected',
+    options: {
+      preview: this.renderAssetOriginalPreview(),
+      fileName: this.getFileName()
+    }
+  });
+  // HACK: Set item name as the asset file name for "Resource::Item" content types
   if (this.$el.data('asset-name') === 'download') {
     $('#resource_item_name').val(this.getFileName());
   }
