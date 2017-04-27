@@ -4,5 +4,8 @@
   }
   &-medium {
     width: 350px;
+    &-max {
+      max-width: 350px;
+    }
   }
 }
