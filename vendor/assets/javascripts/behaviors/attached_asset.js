@@ -12,6 +12,8 @@ Cmsify.AttachedAsset = function(el) {
   this.$el.on('selected', this.loadSelectedAsset);
   this.$removeAssetButton.on('click', this.removeAssetPreview);
 
+  this.render();
+
   return this;
 };
 
@@ -38,6 +40,8 @@ Cmsify.AttachedAsset.prototype.render = function() {
     this.$removeAssetButton.addClass('uk-hidden');
   } else {
     this.$preview.removeClass('uk-hidden');
-    this.$removeAssetButton.removeClass('uk-hidden');
+    if (this.$altTitleText.val() !== "") {
+      this.$removeAssetButton.removeClass('uk-hidden');
+    }
   }
 };
