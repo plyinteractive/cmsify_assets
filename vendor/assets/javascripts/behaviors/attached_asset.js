@@ -12,8 +12,6 @@ Cmsify.AttachedAsset = function(el) {
   this.$el.on('selected', this.loadSelectedAsset);
   this.$removeAssetButton.on('click', this.removeAssetPreview);
 
-  this.render();
-
   return this;
 };
 
