@@ -1,7 +1,36 @@
-$medium-width: 768px;
-$medium: "screen and (min-width: #{$medium-width})";
-@mixin media-medium {
-  @media #{$medium} {
+$s-width: 480px;
+$uptown-phablet-width: 550px;
+$m-width: 768px;
+$l-width: 960px;
+$xl-width: 1600px;
+$s: "screen and (min-width: #{$s-width})";
+$uptown-phablet: "(min-width: #{$uptown-phablet-width})";
+$m: "screen and (min-width: #{$m-width})";
+$l: "screen and (min-width: #{$l-width})";
+$xl: "screen and (min-width: #{$xl-width})";
+
+@mixin s {
+  @media #{$s} {
+    @content;
+  }
+}
+@mixin uptown-phablet {
+  @media #{$uptown-phablet} {
+    @content;
+  }
+}
+@mixin m {
+  @media #{$m} {
+    @content;
+  }
+}
+@mixin l {
+  @media #{$l} {
+    @content;
+  }
+}
+@mixin xl {
+  @media #{$xl} {
     @content;
   }
 }

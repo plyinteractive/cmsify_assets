@@ -1,0 +1,9 @@
+.mce-btn button {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  &:hover, &:focus {
+    background: $c-porcelain;
+    box-shadow: none;
+  }
+}
