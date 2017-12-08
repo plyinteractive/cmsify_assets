@@ -68,21 +68,6 @@
   }
 }
 
-// Uptown css override
-// .tabs {
-//   li.uk-active {
-//     &:first-child {
-//       a {
-//         border-top-left-radius: .3rem;
-//       }
-//     }
-//     a {
-//       background-color: $c-white;
-//       color: $c-outer-space;
-//       border-bottom-color: $c-white;
-//     }
-//   }
-// }
 .tabs {
   li {
     &.uk-active {
