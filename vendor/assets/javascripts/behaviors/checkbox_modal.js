@@ -3,11 +3,12 @@ Cmsify.CheckboxModal = function(el) {
   this.$el = $(el);
   this.checked = {};
   this.modal = UIkit.modal(el, {bgclose: false});
-  this.modal.on('show.uk.modal', function() {
+  UIkit.util.on(el, 'show', function () {
     this.storeCheckboxes();
   }.bind(this));
+
   this.$el.find('.js-cancel-' + this.$el.attr('id')).each(function(index, cancel) {
-    $(cancel).on('click', this.loadCheckboxes.bind(this)); 
+    $(cancel).on('click', this.loadCheckboxes.bind(this));
   }.bind(this));
 }
 

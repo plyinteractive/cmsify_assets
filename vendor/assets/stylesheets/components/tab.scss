@@ -1,12 +1,14 @@
-// uikit tab override
-.uk-tab {
+.blm-tab {
   background-color: $c-porcelain;
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
+  margin-left: 0;
   > li {
     flex: 1;
     max-width: 140px;
     > a {
+      text-decoration: none;
       display: flex;
       justify-content: center;
       padding: 15px 10px !important;
