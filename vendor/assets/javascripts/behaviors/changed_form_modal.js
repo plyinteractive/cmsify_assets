@@ -32,12 +32,12 @@ CFM.prototype.setIsModified = NR.setIsModified
 CFM.prototype.openWarningModal = function(event) {
   this.isWarningModalOpened = true;
   event.preventDefault();
-  var $unsavedModal = UIkit.modal('.js-unsaved-modal');
-  $unsavedModal.show();
-  $unsavedModal.find('.js-modal-confirm').on('click', function() {
+  var el = ".js-unsaved-modal"
+  UIkit.modal(el).show();
+  $(el).find('.js-modal-confirm').on('click', function() {
     window.location.href = $(event.target).attr('href');
   });
-  $unsavedModal.on('hide.uk.modal', function() {
+  UIkit.util.on(el, 'hide', function() {
     this.isWarningModalOpened = false;
   }.bind(this));
 }

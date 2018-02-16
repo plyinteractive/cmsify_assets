@@ -1,0 +1,9 @@
+.uk-navbar {
+  &-container:not(.uk-navbar-transparent) {
+    box-shadow: $default-box-shadow;
+    background-color: $c-white;
+  }
+  &-item {
+    height: 56px;
+  }
+}

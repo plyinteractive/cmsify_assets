@@ -36,7 +36,8 @@ Cmsify.NestedResource = function(el, options) {
   this.$cancelButton = this.$el.find('.js-nested-resource__cancel');
   this.$fields = this.$el.find(':input');
   this.parsleyGroup = this.options.modelName + this.options.index;
-  this.modal = UIkit.modal(this.$el.find('.uk-modal'), {
+  this.modal_target = this.$el.find('.uk-modal')
+  this.modal = UIkit.modal(this.modal_target, {
     bgclose: false,
     center: true
   });
@@ -44,12 +45,12 @@ Cmsify.NestedResource = function(el, options) {
   this.isModified = false;
   this.init();
 
-  this.modal.on('show.uk.modal', function() {
+  UIkit.util.on(this.modal_target, 'show', function() {
     this.lastData = this.serializeFields();
     sortable('.js-sortable', 'disable');
   }.bind(this));
 
-  this.modal.on('hide.uk.modal', function() {
+  UIkit.util.on(this.modal_target, 'hide', function() {
     sortable('.js-sortable', 'enable');
   }.bind(this));
 
@@ -69,7 +70,7 @@ Cmsify.NestedResource = function(el, options) {
   this.$cancelButton
     .on('click', function(e) {
       e.preventDefault();
-      this.modal.on('hide.uk.modal', this.boundHandleCloseClick);
+      UIkit.util.on(this.modal_target, 'hide', this.boundHandleCloseClick);
       this.modal.hide();
     }.bind(this));
 
@@ -88,7 +89,7 @@ Cmsify.NestedResource.prototype.handleCloseClick = function() {
   } else {
     this.deserializeFields(this.lastData);
   }
-  this.modal.off('hide.uk.modal', this.boundHandleCloseClick);
+  UIkit.util.off(this.modal_target, 'hide', this.boundHandleCloseClick);
 };
 
 Cmsify.NestedResource.prototype.init = function() {

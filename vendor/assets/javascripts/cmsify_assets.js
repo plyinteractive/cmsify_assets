@@ -21,8 +21,6 @@
 //= require parsleyjs
 //= require dropzone
 //= require underscore
-//= require uikit
-//= require uikit/components/datepicker.js
 
 // Cmsify Classes
 //= require cmsify
