@@ -1,0 +1,40 @@
+.uk-offcanvas {
+  &-bar {
+    background-color: $c-barely-transparent;
+    padding: 0;
+    .card {
+      box-shadow: none;
+      &-section {
+        .card {
+          padding: 0;
+        }
+      }
+    }
+  }
+  &-overlay {
+    &:before {
+      background-color: rgba(0, 0, 0, .4);
+    }
+  }
+}
+// HACK reset text colors
+// TODO: Build uikit using modern tools so we can set the variables at the beginning
+.uk-offcanvas-bar {
+  h1, h2, h3, h4, h5, h6, p {
+    color: $c-ebony-clay;
+  }
+  hr {
+    border-top: .1rem solid $c-geyser;
+  }
+}
+
+.cmsify-offcanvas {
+  &-overflow-container {
+    padding-bottom: 76px;
+  }
+  &-footer {
+    border-top: .1rem solid $c-geyser;
+    background-color: $c-barely-transparent;
+    box-shadow: $default-box-shadow;
+  }
+}

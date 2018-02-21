@@ -1,0 +1,11 @@
+.uk-card {
+  background-color: $c-barely-transparent;
+  box-shadow: $default-box-shadow;
+  border-radius: $default-border-radius;
+}
+.has-sections {
+  .card {
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+}

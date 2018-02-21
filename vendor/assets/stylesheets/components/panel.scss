@@ -1,0 +1,8 @@
+.uk-panel {
+  background-color: $c-barely-transparent;
+  &-scrollable {
+    border-right: 0;
+    border-left: 0;
+    padding: 0;
+  }
+}
