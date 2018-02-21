@@ -1,0 +1,8 @@
+.button {
+  &.drag {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    cursor: move;
+  }
+}

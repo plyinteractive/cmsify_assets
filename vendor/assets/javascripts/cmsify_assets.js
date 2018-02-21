@@ -13,7 +13,7 @@
 // Gem Libraries
 //= require jquery3
 //= require jquery_ujs
-//= require turbolinks
+
 //= require cocoon
 //= require html.sortable/dist/html.sortable.js
 //= require jquery.tablesorter
