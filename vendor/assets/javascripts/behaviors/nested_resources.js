@@ -123,10 +123,13 @@ Cmsify.NestedResource.prototype.getModalSelector = function() {
 };
 
 Cmsify.NestedResource.prototype.serializeFields = function () {
-  //HACK needed because of how turbolinks is loading. Between the time that the page load
-  //event is fired and the page actually becomes useful the authenicity token being changed
-  //by turbolinks
-  return Cmsify.util.filterAuthenticityToken(this.$el.find(':input').serializeArray());
+  // HACK: Filtering `authenticity_token` is needed because of how turbolinks is loading. Between
+  // the time that the page load event is fired and the page actually becomes useful the authenicity
+  // token being changed by turbolinks.
+  // Excluding tinymce fields here because they spontaneously change the HTML content which breaks
+  // comparisons later on. The check for `isDirty()` below will take care of checking if they were
+  // changed.
+  return Cmsify.util.filterAuthenticityToken(this.$el.find(':input').not('.tinymce').serializeArray());
 };
 
 Cmsify.NestedResource.prototype.deserializeFields = function(fields) {
