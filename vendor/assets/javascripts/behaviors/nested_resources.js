@@ -129,7 +129,7 @@ Cmsify.NestedResource.prototype.serializeFields = function () {
   // Excluding tinymce fields here because they spontaneously change the HTML content which breaks
   // comparisons later on. The check for `isDirty()` below will take care of checking if they were
   // changed.
-  return Cmsify.util.filterAuthenticityToken(this.$el.find(':input').not('.tinymce').serializeArray());
+  return Cmsify.util.filterAuthenticityToken(this.$el.find(':input').not('.tinymce').not('.js-flatpickr').serializeArray());
 };
 
 Cmsify.NestedResource.prototype.deserializeFields = function(fields) {
