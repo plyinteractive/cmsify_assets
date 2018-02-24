@@ -13,6 +13,9 @@ $(document).on('cmsify:load', function() {
         editor.on('change', function(e) {
           $('input[id='+ e.target.id + ']').trigger('tinymce:change');
         });
+      },
+      init_instance_callback: function (editor) {
+        $('#'+editor.id).closest('.row').removeClass('uk-invisible');
       }
     }
   );
