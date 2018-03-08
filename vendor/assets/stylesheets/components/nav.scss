@@ -3,7 +3,7 @@
     &.uk-open {
       > div {
         > .blm-uk-nav-toggle:after {
-          transform: rotate(90deg)
+          transform: rotate(90deg);
         }
       }
     }
@@ -36,18 +36,24 @@
   }
   &-toggle {
     position: relative;
+    cursor: pointer;
     &:after {
       position: absolute;
       content: "";
       top: 50%;
-      margin-top: -5px;
+      margin-top: -6px;
       right: 50%;
       margin-right: -.75rem;
       width: 0;
       height: 0;
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
-      border-left: 5px solid $c-ebony-clay;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid $c-regent-gray;
+    }
+    &:hover {
+      &:after {
+        border-left-color: $c-pale-sky;
+      }
     }
   }
 }
