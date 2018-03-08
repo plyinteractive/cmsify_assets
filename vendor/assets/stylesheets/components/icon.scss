@@ -1,3 +1,8 @@
 .bloom-icon-large {
   font-size: 34px;
 }
+.icon-edit, .icon-move-vertical{
+  &:after {
+    background-size: 12px 12px;
+  }
+}

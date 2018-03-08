@@ -1,8 +1,18 @@
-.button {
-  &.drag {
+.button, button {
+  &.transparent {
     background: transparent;
     box-shadow: none;
     border: none;
+    min-height: 2rem;
+    min-width: 2rem;
+    padding: 0 1rem;
+    &:active, &:hover, &:focus {
+      background: transparent;
+      box-shadow: none;
+      border: none;
+    }
+  }
+  &.drag {
     cursor: move;
   }
 }
