@@ -1,6 +1,6 @@
 var remoteUpload = Cmsify.RemoteUpload = function(form, elementToClone, elementToInsertBefore, callback) {
   form.dropzone({
-    timeout: 120000,
+    timeout: 480000,
     dictDefaultMessage: 'Drop files or click here to upload',
     maxFiles: 1,
     maxfilesexceeded: function(file) {
