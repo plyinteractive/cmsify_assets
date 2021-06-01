@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   # using edge version of uikit with cdn
   # spec.add_dependency 'rails-assets-uikit'
   spec.add_dependency 'rails-assets-bourbon', "~> 5.1"
-  spec.add_dependency 'rails-assets-html.sortable'
+  spec.add_dependency 'rails-assets-html.sortable', "0.5.1"
   spec.add_dependency 'rails-assets-parsleyjs'
   spec.add_dependency 'rails-assets-jquery.tablesorter'
   spec.add_dependency 'rails-assets-webui-popover'
