@@ -20,3 +20,13 @@
     }
   }
 }
+table tbody tr.selectable {
+  &:hover {
+    background-color:  #E5E7EB !important;
+  }
+  &.selected {
+    background-color: #D1FAE5 !important;
+  }
+}
+.uk-modal-page { overflow: visible !important; }
+.uk-modal-page > body { overflow-y: visible !important;overflow-x: hidden !important; }
