@@ -14,15 +14,14 @@ $(document).on('cmsify:load', function() {
     });
   });
   $('.js-dropzone-asset-upload').each(function() {
-    var resourceName = this.dataset.resourceName;
-    Cmsify.RemoteUpload($(this).find('form'),
-      '.js-' + resourceName + '-table-element',
-      '.js-' + resourceName + '-table-element',
-      function(clone, cloneInput, req, res) {
-        $(clone).first().removeClass('uk-hidden');
-        UIkit.modal('#add-new-' + resourceName).hide();
-        $('.js-remove-asset').removeClass('uk-hidden');
-      });
+    Cmsify.RemoteUpload(
+      $(this).find('form'),
+      this.dataset,
+      function(dataset, req, res) {
+        document.getElementById(`${dataset.controllerNamespace}_${dataset.model}_attached_${dataset.targetResourceName}_remove_asset`).classList.remove('uk-hidden')
+        UIkit.modal('#add-new-asset').hide();
+      }
+    );
   });
   $('.js-selectable').each(function() {
     new Cmsify.SelectableAsset(this);

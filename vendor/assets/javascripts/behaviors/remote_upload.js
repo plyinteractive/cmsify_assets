@@ -1,4 +1,4 @@
-var remoteUpload = Cmsify.RemoteUpload = function(form, elementToClone, elementToInsertBefore, callback) {
+var remoteUpload = Cmsify.RemoteUpload = function(form, dataset, callback) {
   form.dropzone({
     timeout: 480000,
     dictDefaultMessage: 'Drop files or click here to upload',
@@ -9,33 +9,20 @@ var remoteUpload = Cmsify.RemoteUpload = function(form, elementToClone, elementT
     },
     init: function() {
       this.on('success', function(req, res) {
-        var $clone = $(elementToClone).clone().first();
-        var $input = $clone.is('input') ? $clone : $clone.find('input').first();
-        var $img = $clone.find('img');
-        if ($input) {
-          var baseId = $input.attr('id').split('_');
-          baseId.pop();
-          baseId.push(res.asset.id);
-          $input.attr({
-            'id': baseId.join('_'),
-            'checked': true
-          });
-          $input.val(res.asset.id);
+        document.getElementById(`${dataset.controllerNamespace}_${dataset.model}_attached_${dataset.targetResourceName}_attributes_asset_id`)
+          .setAttribute("value", res.asset.id)
+        let elem;
+        if (res.asset.isImage) {
+          elem = `<img src=${res.asset.url} alt="" class="cmsify-width-medium" />`
+        } else {
+          elem = `<i class="icomoon-${res.asset.extension} bloom-icon-large uk-text-muted"></i>`
         }
-        if ($img) {
-          $img.attr('src', res.asset.url);
-        }
-        $clone.data('asset-url', res.asset.url);
-        $clone.data('asset-type', res.asset.type);
-        $clone.removeClass('uk-hidden');
-        var selectableAsset = new Cmsify.SelectableAsset($clone);
-        $clone.insertBefore($(elementToInsertBefore).first());
-        $clone.children().first().html(selectableAsset.renderAssetIconPreview());
-        $clone.children().eq(1).html(selectableAsset.getFileName());
-        $clone.trigger('click');
-        if (typeof callback === 'function') callback(elementToClone, $input, req, res);
+        let imageContainer = document.getElementById(`${dataset.controllerNamespace}_${dataset.model}_attached_${dataset.targetResourceName}_image_id`)
+        imageContainer.innerHTML = elem
+        imageContainer.nextElementSibling.innerText = res.asset.filename
+        if (typeof callback === 'function') callback(dataset, req, res);
         this.destroy();
-        remoteUpload(form, elementToClone, elementToInsertBefore, callback);
+        remoteUpload(form, dataset, callback);
       }.bind(this));
     }
   })

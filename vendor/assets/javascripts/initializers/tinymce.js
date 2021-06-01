@@ -4,7 +4,7 @@ $(document).on('cmsify:load', function() {
   tinymce.init(
     {
       selector:'.tinymce',
-      height: 250,
+      height: 500,
       plugins: "searchreplace code fullscreen media paste code lists advlist image link",
       toolbar: "code image bullist numlist link",
       relative_urls: false,

@@ -13,9 +13,8 @@
 // Gem Libraries
 //= require jquery3
 //= require jquery_ujs
-
-//= require cocoon
 //= require html.sortable/dist/html.sortable.js
+//= require cocoon
 //= require jquery.tablesorter
 //= require webui-popover/jquery.webui-popover
 //= require parsleyjs
